@@ -21,10 +21,12 @@ pipeline {
                 }
             }
 
-        stage('apply deploymet') {
+        stage('clone repository & apply deploymet') {
             steps {
-                dir('/home/michaeld/devops_course/big_ex1/sub_ex_6_k8s_jenkins') {
+                sh 'git clone https://github.com/michael135/sub_ex_6_k8s_jenkins.git'
+                dir('sub_ex_6_k8s_jenkins') {
                 sh 'kubectl apply -f ex5-deployment.yaml'
+                }
             }
         }
 
