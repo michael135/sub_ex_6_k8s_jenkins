@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ex5
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ex5
+  template:
+    metadata:
+      labels:
+        app: ex5
+    spec:
+      containers:
+        - name: ex5
+          image: mdmshts/ex4-part1
+          ports:
+          - containerPort: 5000
