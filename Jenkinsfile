@@ -32,7 +32,9 @@ pipeline {
 
            stage('apply service') {
             steps {
+                dir('sub_ex_6_k8s_jenkins') {
                 sh 'kubectl apply -f ex5-service.yaml'
+                }
             }
         }
 
